@@ -192,7 +192,8 @@ nav ul li a:hover {
 /* Menggabungkan styling untuk ketiga section agar konsisten dan memenuhi tinggi tampilan */
 .projects-section,
 .skills-section,
-.contact-section {
+.contact-section,
+.certificates-section {
   padding: 4.5rem 0 3rem;
   /* Sesuaikan padding atas dan bawah */
   background: rgba(255, 255, 255, 0.7);
@@ -212,7 +213,8 @@ nav ul li a:hover {
 /* Untuk konten di dalam container section */
 .projects-section .container,
 .skills-section .container,
-.contact-section .container {
+.contact-section .container,
+.certificates-section .container {
   width: 90%;
   /* Sesuaikan lebar container agar tidak terlalu mepet tepi */
   max-width: 1200px;
@@ -222,7 +224,8 @@ nav ul li a:hover {
 /* Judul Section */
 .projects-section h2,
 .skills-section h2,
-.contact-section h2 {
+.contact-section h2,
+.certificates-section h2 {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 50px;
@@ -231,7 +234,8 @@ nav ul li a:hover {
 
 /* Grid untuk Project dan Skill */
 .project-grid,
-.skill-grid {
+.skill-grid,
+.certificate-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
@@ -239,7 +243,8 @@ nav ul li a:hover {
 
 /* Item Project dan Skill */
 .project-item,
-.skill-item {
+.skill-item, 
+.certificate-item {
   background-color: var(--bg-light);
   padding: 25px;
   border-radius: 8px;
@@ -267,16 +272,23 @@ nav ul li a:hover {
   object-fit: contain;
   margin-bottom: 15px;
 }
+.certificate-item img {
+  max-width: 100%;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
 
 .project-item h3,
-.skill-item h3 {
+.skill-item h3,
+.certificate-item h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
   color: var(--secondary-color);
 }
 
 .project-item p,
-.skill-item p {
+.skill-item p,
+.certificate-item p {
   font-size: 0.95rem;
   color: #555;
 }
@@ -313,8 +325,6 @@ nav ul li a:hover {
   /* Efek sedikit naik */
   text-decoration: none;
 }
-
-
 
 /* Contact Section Specific Styling */
 .contact-info {
