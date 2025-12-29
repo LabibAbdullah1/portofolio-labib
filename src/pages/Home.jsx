@@ -44,7 +44,7 @@ const Home = () => {
                         <p className="text-lg text-gray-600 leading-relaxed">
                             Saya senang memecahkan masalah kompleks dan mengubahnya menjadi antarmuka yang sederhana
                             dan intuitif. Saat tidak sedang coding, saya biasanya mengeksplorasi teknologi baru
-                            seperti Kecerdasan Artificial (KA) atau berkontribusi di proyek open source.
+                            seperti Kecerdasan Artificial (KA) atau membuat sebuah rancangan aplikasi keren.
                         </p>
                     </div>
                 </div>

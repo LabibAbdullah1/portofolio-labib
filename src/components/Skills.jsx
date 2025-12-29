@@ -10,8 +10,6 @@ const Skills = () => {
         { name: "MySQL", icon: <SiMysql />, color: "text-blue-600" },
         { name: "Tailwind", icon: <SiTailwindcss />, color: "text-teal-500" },
         { name: "Bootstrap", icon: <SiBootstrap />, color: "text-purple-600" },
-        { name: "Database Design", icon: <FaDatabase />, color: "text-gray-600" },
-        { name: "REST API", icon: <FaCode />, color: "text-green-600" },
     ];
 
     return (

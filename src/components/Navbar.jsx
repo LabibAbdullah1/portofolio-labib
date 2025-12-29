@@ -19,7 +19,7 @@ const Navbar = () => {
             <div className="container mx-auto px-4 py-4 flex justify-between items-center">
                 {/* Logo / Nama */}
                 <Link to="/" className="text-2xl font-bold text-blue-600">
-                    PortofolioSaya
+                    Portofolio
                 </Link>
 
                 {/* Menu Desktop */}
@@ -46,7 +46,7 @@ const Navbar = () => {
                     {['home', 'about', 'skills', 'projects', 'certificates', 'contact'].map((item) => (
                         <a
                             key={item}
-                            href={`#${item}`}
+                            href={`/#${item}`}
                             onClick={() => handleScroll(item)}
                             className="block py-2 capitalize hover:text-blue-600"
                         >
