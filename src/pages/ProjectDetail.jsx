@@ -18,7 +18,7 @@ const ProjectDetail = () => {
     // 3. Jika project tidak ditemukan (jaga-jaga user ketik url ngawur)
     if (!project) {
         return (
-            <div className="min-h-screen flex flex-col items-center justify-center">
+            <div className="min-h-screen bg-white/80 flex flex-col items-center justify-center">
                 <h2 className="text-2xl font-bold mb-4">Project tidak ditemukan</h2>
                 <Link to="/" className="text-blue-600 hover:underline">Kembali ke Home</Link>
             </div>

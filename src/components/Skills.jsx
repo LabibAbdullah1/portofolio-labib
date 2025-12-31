@@ -1,12 +1,13 @@
-import { FaLaravel, FaReact, FaDatabase, FaCode } from "react-icons/fa";
-import { SiGo, SiMysql, SiTailwindcss, SiBootstrap } from "react-icons/si";
+
+import { SiGo, SiMysql, SiTailwindcss, SiBootstrap, SiPython, SiLaravel, SiReact, } from "react-icons/si";
 
 const Skills = () => {
     // Kita buat array data skill di sini agar kodingan HTML-nya bersih
     const skills = [
-        { name: "Laravel", icon: <FaLaravel />, color: "text-red-600" },
-        { name: "React JS", icon: <FaReact />, color: "text-blue-400" },
+        { name: "Laravel", icon: <SiLaravel />, color: "text-red-600" },
+        { name: "React JS", icon: <SiReact />, color: "text-blue-400" },
         { name: "Golang", icon: <SiGo />, color: "text-cyan-600" },
+        { name: "Python", icon: <SiPython />, color: "text-blue-500" },
         { name: "MySQL", icon: <SiMysql />, color: "text-blue-600" },
         { name: "Tailwind", icon: <SiTailwindcss />, color: "text-teal-500" },
         { name: "Bootstrap", icon: <SiBootstrap />, color: "text-purple-600" },
