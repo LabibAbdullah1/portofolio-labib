@@ -70,4 +70,4 @@ LinkedIn: [Labib Abdullah](https://www.linkedin.com/in/labib-abdullah)
 
 Instagram: [Labibabdullah205](https://instagram.com/LABIB_205)
 
-© 2024 [Nama Kamu]. Dibuat dengan React & Tailwind CSS.
+© 2025 Labib Abdullah. Dibuat dengan React & Tailwind CSS.
