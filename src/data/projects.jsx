@@ -29,7 +29,7 @@ export const projectsData = [
         date: "31 Desember 2025",
         collaborators: ["Labib Abdullah"],
         deployLink: "=",
-        githubLink: "=",
+        githubLink: "https://github.com/LabibAbdullah1/SmartHydroponic.git",
     },
     {
         id: 3,
