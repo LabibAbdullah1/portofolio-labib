@@ -7,9 +7,9 @@ const Footer = () => {
                 <h2 className="text-2xl font-bold mb-4">Portofolio</h2>
 
                 <div className="flex justify-center space-x-6 mb-4">
-                    <a href="#" className="text-2xl hover:text-blue-400 transition"><FaGithub /></a>
-                    <a href="#" className="text-2xl hover:text-pink-500 transition"><FaInstagram /></a>
-                    <a href="#" className="text-2xl hover:text-blue-600 transition"><FaLinkedin /></a>
+                    <a href="https://github.com/LabibAbdullah1" className="text-2xl hover:text-blue-400 transition"><FaGithub /></a>
+                    <a href="https://instagram.com/LABIB_205" className="text-2xl hover:text-pink-500 transition"><FaInstagram /></a>
+                    <a href="https://www.linkedin.com/in/labib-abdullah" className="text-2xl hover:text-blue-600 transition"><FaLinkedin /></a>
                 </div>
 
                 <p className="text-gray-400 text-sm">

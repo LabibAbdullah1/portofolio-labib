@@ -1,16 +1,73 @@
-# React + Vite
+# Portofolio Pribadi - [Nama Kamu]
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Website portofolio pribadi yang modern dan responsif, dibangun menggunakan **React JS** dan **Vite**. Website ini dirancang untuk menampilkan profil, keahlian teknis (skills), daftar proyek, serta sertifikat yang telah saya raih.
 
-Currently, two official plugins are available:
+🔗 **Live Demo:** [Tempel Link Vercel/Netlify Kamu Di Sini]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Teknologi yang Digunakan
 
-## React Compiler
+Project ini dibangun menggunakan stack teknologi berikut:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **Core:** [React JS](https://react.dev/) + [Vite](https://vitejs.dev/)
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+* **Routing:** [React Router DOM](https://reactrouter.com/)
+* **Icons:** [React Icons](https://react-icons.github.io/react-icons/)
+* **Animation:** [TSParticles](https://particles.js.org/) (Efek background interaktif)
 
-## Expanding the ESLint configuration
+## ✨ Fitur Utama
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **Responsive Design:** Tampilan optimal di Desktop, Tablet, dan Mobile.
+* **Single Page Navigation:** Navigasi halus antar section (Home, About, Skills, dll).
+* **Dynamic Routing:** Halaman detail untuk setiap project yang dinamis.
+* **Interactive UI:** Efek partikel background dan transisi animasi.
+* **Data Management:** Data project dan skill terpusat di file terpisah agar mudah dikelola.
+
+## 🚀 Cara Menjalankan di Local
+
+Jika ingin menjalankan project ini di komputer Anda, ikuti langkah berikut:
+
+1.  **Clone repository ini**
+    ```bash
+    git clone https://github.com/LabibAbdullah1/portofolio-labib.git
+    ```
+
+2.  **Masuk ke folder project**
+    ```bash
+    cd [portofolio-labib]
+    ```
+
+3.  **Install dependencies**
+    Pastikan Node.js sudah terinstall.
+    ```bash
+    npm install
+    ```
+
+4.  **Jalankan server development**
+    ```bash
+    npm run dev
+    ```
+
+5.  Buka browser dan akses `http://localhost:5173`.
+
+## 📂 Struktur Folder
+
+```text
+src/
+├── assets/          # Menyimpan gambar (static images)
+├── components/      # Komponen reusable (Navbar, Footer, Card, dll)
+├── data/            # Data dummy untuk Projects dan Skills
+├── pages/           # Halaman utama (Home & ProjectDetail)
+├── App.jsx          # Main App Component
+└── main.jsx         # Entry point React
+```
+
+📬 Kontak
+Jika ingin berdiskusi atau berkolaborasi, silakan hubungi saya:
+
+Email: [Labib Abdullah](https://email.labibabdullahhasan@gmail.com)
+
+LinkedIn: [Labib Abdullah](https://www.linkedin.com/in/labib-abdullah)
+
+Instagram: [Labibabdullah205](https://instagram.com/LABIB_205)
+
+© 2024 [Nama Kamu]. Dibuat dengan React & Tailwind CSS.
