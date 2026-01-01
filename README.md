@@ -1,8 +1,8 @@
-# Portofolio Pribadi - [Nama Kamu]
+# Portofolio Pribadi - [Labib Abdullah]
 
 Website portofolio pribadi yang modern dan responsif, dibangun menggunakan **React JS** dan **Vite**. Website ini dirancang untuk menampilkan profil, keahlian teknis (skills), daftar proyek, serta sertifikat yang telah saya raih.
 
-🔗 **Live Demo:** [Tempel Link Vercel/Netlify Kamu Di Sini]
+🔗 **Live Demo:** [Demo Live](https://portofolio-labib.vercel.app)
 
 ## 🛠️ Teknologi yang Digunakan
 
@@ -33,7 +33,7 @@ Jika ingin menjalankan project ini di komputer Anda, ikuti langkah berikut:
 
 2.  **Masuk ke folder project**
     ```bash
-    cd [portofolio-labib]
+    cd portofolio-labib
     ```
 
 3.  **Install dependencies**
