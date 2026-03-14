@@ -19,28 +19,25 @@ const ParticleBackground = () => {
     const options = {
         fullScreen: {
             enable: true,
-            zIndex: -1,
+            zIndex: 0,
         },
         background: {
-            color: "#1a4fbbff", // Kita set background dasar abu-abu muda
+            color: "transparent",
         },
         particles: {
-            color: { value: "#94a3b8" }, // Ini warna Slate-400 (Abu-abu kebiruan), cocok untuk tema terang
-
-            shape: { type: "circle" },
-            opacity: {
-                value: 0.5,
-                random: true,
-            },
-            size: {
-                value: { min: 1, max: 6 }, 
-                random: true,
+            color: { value: "#ffffff" },
+            links: {
+                color: "#ffffff",
+                distance: 150,
+                enable: true,
+                opacity: 0.05,
+                width: 1,
             },
             move: {
                 enable: true,
-                speed: 5,
-                direction: "bottom",
-                random: false,
+                speed: 0.6,
+                direction: "none",
+                random: true,
                 straight: false,
                 outModes: {
                     default: "out",
@@ -51,9 +48,19 @@ const ParticleBackground = () => {
                     enable: true,
                     area: 800,
                 },
-                value: 80,
+                value: 40,
+            },
+            opacity: {
+                value: 0.1,
+            },
+            shape: {
+                type: "circle",
+            },
+            size: {
+                value: { min: 1, max: 3 },
             },
         },
+        detectRetina: true,
     };
 
     if (init) {

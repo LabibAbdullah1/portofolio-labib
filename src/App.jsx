@@ -1,29 +1,22 @@
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Layout } from './components/Layout';
+import { CustomCursor } from './components/CustomCursor';
 import Home from './pages/Home';
 import ProjectDetail from './pages/ProjectDetail';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import ParticleBackground from './components/ParticleBackground';
 
-function App() {
+const App = () => {
   return (
     <Router>
-      {/* Navbar diletakkan di sini agar muncul di semua halaman */}
-      <ParticleBackground />
-      <Navbar /> 
-      
-      <Routes>
-        {/* Halaman Utama (Hero, About, Skills, List Project, Contact) */}
-        <Route path="/" element={<Home />} />
-        
-        {/* Halaman Detail Project (Menerima ID project) */}
-        <Route path="/project/:id" element={<ProjectDetail />} />
-      </Routes>
-
-      {/* Footer diletakkan di sini agar muncul di semua halaman */}
-      <Footer />
+      <Layout>
+        <CustomCursor />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/project/:id" element={<ProjectDetail />} />
+        </Routes>
+      </Layout>
     </Router>
   );
-}
+};
 
 export default App;

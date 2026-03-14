@@ -1,135 +1,150 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { projectsData } from '../data/projects';
-import { FaGithub, FaExternalLinkAlt, FaArrowLeft, FaCalendarAlt, FaUserFriends } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { FaGithub, FaExternalLinkAlt, FaArrowLeft, FaCalendarAlt, FaUserFriends, FaCode } from 'react-icons/fa';
 
 const ProjectDetail = () => {
-    // 1. Ambil ID dari parameter URL (misal: /project/1)
     const { id } = useParams();
-
-    // 2. Cari data project yang ID-nya cocok
-    // Kita pakai parseInt karena id dari URL berupa string, sedangkan di data berupa number
     const project = projectsData.find((p) => p.id === parseInt(id));
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
-    // 3. Jika project tidak ditemukan (jaga-jaga user ketik url ngawur)
     if (!project) {
         return (
-            <div className="min-h-screen bg-white/80 flex flex-col items-center justify-center">
-                <h2 className="text-2xl font-bold mb-4">Project tidak ditemukan</h2>
-                <Link to="/" className="text-blue-600 hover:underline">Kembali ke Home</Link>
+            <div className="min-h-screen bg-black flex flex-col items-center justify-center text-white">
+                <h2 className="text-3xl font-bold mb-6 tracking-tight">Project not found</h2>
+                <Link to="/" className="px-6 py-2 bg-white text-black font-bold rounded-full hover:scale-105 transition-transform">
+                    Back to Home
+                </Link>
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen bg-gray-50/80 pt-24 pb-10">
-            <div className="container mx-auto px-4">
-
-                {/* Tombol Kembali */}
-                <Link to="/#projects" className="inline-flex items-center text-gray-600 hover:text-blue-600 mb-6 transition">
-                    <FaArrowLeft className="mr-2" /> Kembali ke Portfolio
+        <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="min-h-screen bg-black text-white pt-32 pb-24 px-6"
+        >
+            <div className="max-w-6xl mx-auto">
+                {/* Back Link */}
+                <Link to="/#projects" className="inline-flex items-center text-neutral-500 hover:text-white mb-12 transition-colors group">
+                    <FaArrowLeft className="mr-2 group-hover:-translate-x-1 transition-transform" /> Back to Portfolio
                 </Link>
 
-                {/* Card Utama Detail Project */}
-                <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                    {/* Header Image & Info */}
+                    <div className="lg:col-span-8">
+                        <motion.div 
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 0.2 }}
+                            className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 mb-12 group"
+                        >
+                            <img
+                                src={project.dimage}
+                                alt={project.title}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                onError={(e) => {
+                                    e.target.src = 'https://via.placeholder.com/1200x600?text=' + project.title;
+                                }}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+                        </motion.div>
 
-                    {/* Header Gambar Besar */}
-                    <div className="w-full h-64 md:h-96 relative">
-                        <img
-                            src={project.dimage}
-                            alt={project.title}
-                            className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <h1 className="text-4xl font-bold text-white text-center px-4">{project.title}</h1>
+                        <div className="space-y-12">
+                            <section>
+                                <h1 className="text-5xl font-bold mb-6 tracking-tight">{project.title}</h1>
+                                <p className="text-xl text-neutral-400 leading-relaxed max-w-3xl">
+                                    {project.description}
+                                </p>
+                            </section>
+
+                            <section className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-sm">
+                                <h2 className="text-2xl font-bold mb-6 tracking-tight flex items-center gap-3">
+                                    <FaCode className="text-neutral-500" /> Challenges & Solutions
+                                </h2>
+                                <p className="text-neutral-400 leading-relaxed whitespace-pre-line text-lg">
+                                    {project.text}
+                                </p>
+                            </section>
                         </div>
                     </div>
 
-                    <div className="p-8 md:p-12">
+                    {/* Sidebar: Technical Details */}
+                    <div className="lg:col-span-4 space-y-8">
+                        <motion.div 
+                            initial={{ x: 20, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ delay: 0.4 }}
+                            className="sticky top-32 p-10 rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-xl h-fit border-glow"
+                        >
+                            <h3 className="text-xs uppercase tracking-[0.3em] text-neutral-500 font-bold mb-10 pb-4 border-b border-white/10">
+                                Project Overview
+                            </h3>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-
-                            {/* Kolom Kiri: Deskripsi Utama */}
-                            <div className="md:col-span-2">
-                                <h2 className="text-2xl font-bold text-gray-800 mb-4">Tentang Project</h2>
-                                <p className="text-gray-600 leading-relaxed mb-6 whitespace-pre-line">
-                                    {project.description}
-                                </p>
-
-                                {/* Bagian Fitur / Penjelasan Tambahan (Bisa ditambah di data nanti) */}
-                                <h3 className="text-xl font-bold text-gray-800 mb-3">Tantangan & Solusi</h3>
-                                <p className="text-gray-600 leading-relaxed">
-                                    {project.text}
-                                </p>
-                            </div>
-
-                            {/* Kolom Kanan: Detail Teknis & Info */}
-                            <div className="bg-gray-50 p-6 rounded-lg border border-gray-100 h-fit">
-                                <h3 className="text-lg font-bold text-gray-800 mb-4 border-b pb-2">Informasi Project</h3>
-
-                                {/* Waktu Pengerjaan */}
-                                <div className="mb-4">
-                                    <div className="flex items-center text-gray-700 font-semibold mb-1">
-                                        <FaCalendarAlt className="mr-2 text-blue-600" /> Tanggal Selesai
+                            <div className="space-y-10">
+                                <div>
+                                    <div className="flex items-center text-neutral-300 font-bold mb-3 gap-2 uppercase tracking-widest text-[10px]">
+                                        <FaCalendarAlt className="text-blue-500" /> Completion Date
                                     </div>
-                                    <p className="text-gray-600 ml-6">{project.date}</p>
+                                    <p className="text-neutral-500 text-sm font-mono">{project.date}</p>
                                 </div>
 
-                                {/* Kolaborator */}
-                                <div className="mb-4">
-                                    <div className="flex items-center text-gray-700 font-semibold mb-1">
-                                        <FaUserFriends className="mr-2 text-green-600" /> Kolaborator
+                                <div>
+                                    <div className="flex items-center text-neutral-300 font-bold mb-3 gap-2 uppercase tracking-widest text-[10px]">
+                                        <FaUserFriends className="text-green-500" /> Team
                                     </div>
-                                    <ul className="ml-6 list-disc text-gray-600 text-sm pl-4">
+                                    <ul className="space-y-2">
                                         {project.collaborators.map((person, idx) => (
-                                            <li key={idx}>{person}</li>
+                                            <li key={idx} className="text-neutral-500 text-sm">{person}</li>
                                         ))}
                                     </ul>
                                 </div>
 
-                                {/* Tech Stack */}
-                                <div className="mb-6">
-                                    <h4 className="font-semibold text-gray-700 mb-2">Teknologi yang Digunakan:</h4>
+                                <div>
+                                    <div className="flex items-center text-neutral-300 font-bold mb-4 uppercase tracking-widest text-[10px]">
+                                        Technologies
+                                    </div>
                                     <div className="flex flex-wrap gap-2">
                                         {project.techStack.map((tech, idx) => (
-                                            <span key={idx} className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full">
+                                            <span key={idx} className="px-3 py-1 bg-white/5 border border-white/10 text-white text-[10px] uppercase font-bold rounded-full">
                                                 {tech}
                                             </span>
                                         ))}
                                     </div>
                                 </div>
 
-                                {/* Tombol Aksi */}
-                                <div className="flex flex-col gap-3">
-                                    <a
-                                        href={project.deployLink}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                        className="w-full flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-                                    >
-                                        <FaExternalLinkAlt className="mr-2" /> Kunjungi Website
-                                    </a>
+                                <div className="flex flex-col gap-4 pt-6">
+                                    {project.deployLink && project.deployLink !== "=" && (
+                                        <a
+                                            href={project.deployLink}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className="flex items-center justify-center gap-3 px-6 py-4 bg-white text-black rounded-2xl font-bold hover:scale-[1.02] transition-transform shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+                                        >
+                                            <FaExternalLinkAlt /> Live Demo
+                                        </a>
+                                    )}
                                     <a
                                         href={project.githubLink}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="w-full flex items-center justify-center px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100 transition"
+                                        className="flex items-center justify-center gap-3 px-6 py-4 border border-white/10 bg-white/5 text-white rounded-2xl font-bold hover:bg-white/10 transition-colors"
                                     >
-                                        <FaGithub className="mr-2" /> Source Code
+                                        <FaGithub /> View Source
                                     </a>
                                 </div>
-
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
-export default ProjectDetail;
+export default ProjectDetail;

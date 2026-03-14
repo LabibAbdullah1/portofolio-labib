@@ -1,77 +1,103 @@
+import React, { useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
-// Komponen ini menerima props 'project' yang berisi data satu project
-const ProjectCard = ({ project }) => {
-    return (
-        <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform border border-gray-100">
+export const ProjectCard = ({ id, title, description, tags, image, date, collaborators, deployLink, githubLink, span = "col-span-1" }) => {
+  const cardRef = useRef(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [opacity, setOpacity] = useState(0);
 
-            {/* Bagian Gambar */}
-            <div className="relative h-48 overflow-hidden group">
-                <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                />
-                {/* Overlay gelap saat hover (opsional, agar estetik) */}
-                <div className="absolute inset-0 bg-black/0  group-hover:bg-black/20 transition-all duration-300"></div>
-            </div>
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
 
-            {/* Bagian Konten */}
-            <div className="p-6">
-                {/* Judul Project */}
-                <h3 className="text-xl font-bold text-gray-800 mb-2 truncate">
-                    {project.title}
-                </h3>
+    const div = cardRef.current;
+    const rect = div.getBoundingClientRect();
 
-                {/* Ikon Teknologi Kecil */}
-                <div className="flex gap-3 mb-4 text-gray-600 text-xl">
-                    {project.techIcons.map((icon, idx) => (
-                        <span key={idx} title="Tech Stack">{icon}</span>
-                    ))}
-                </div>
+    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
 
-                {/* Deskripsi Singkat (Dipotong agar rapi) */}
-                <p className="text-gray-600 mb-6 text-sm line-clamp-2">
-                    {project.description}
-                </p>
+  const handleMouseEnter = () => setOpacity(1);
+  const handleMouseLeave = () => setOpacity(0);
 
-                {/* Tombol Aksi */}
-                <div className="flex items-center justify-between mt-auto">
-                    {/* Tombol Detail (Penting: Menggunakan Link Router) */}
-                    <Link
-                        to={`/project/${project.id}`}
-                        className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition"
-                    >
-                        Lihat Detail
-                    </Link>
-
-                    {/* Link Cepat ke Github/Demo (Icon only) */}
-                    <div className="flex gap-3">
-                        <a
-                            href={project.githubLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-gray-500 hover:text-black transition text-xl"
-                            title="Source Code"
-                        >
-                            <FaGithub />
-                        </a>
-                        <a
-                            href={project.deployLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-gray-500 hover:text-blue-600 transition text-lg"
-                            title="Live Demo"
-                        >
-                            <FaExternalLinkAlt />
-                        </a>
-                    </div>
-                </div>
-
-            </div>
+  return (
+    <Link 
+      to={`/project/${id}`}
+      className={`block relative group h-full rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden transition-all duration-300 hover:bg-white/[0.05] ${span}`}
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Background Image with Overlay */}
+      {image && (
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={image} 
+            alt={title}
+            className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500"
+            onError={(e) => e.target.style.display = 'none'}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
         </div>
-    );
-};
+      )}
 
-export default ProjectCard;
+      {/* Spotlight effect */}
+      <div
+        className="pointer-events-none absolute -inset-px transition duration-300 z-10"
+        style={{
+          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(255,255,255,0.08), transparent 40%)`,
+          opacity,
+        }}
+      />
+      
+      <div className="relative z-20 p-8 flex flex-col h-full bg-black/40 backdrop-blur-sm">
+        <div className="flex items-start justify-between mb-4">
+          <div className="flex flex-wrap gap-2">
+            {tags?.map((tag) => (
+              <span key={tag} className="text-[10px] uppercase tracking-widest text-white/60 border border-white/10 px-2 py-0.5 rounded-full bg-white/5">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <span className="text-[10px] text-neutral-500 font-mono">{date}</span>
+        </div>
+        
+        <div className="mt-auto">
+          <h3 className="text-2xl font-bold text-white mb-2 group-hover:translate-x-1 transition-transform duration-300">
+            {title}
+          </h3>
+          <p className="text-sm text-neutral-400 line-clamp-2 mb-6">
+            {description}
+          </p>
+
+          <div className="flex items-center justify-between mt-auto">
+             <div className="flex gap-4" onClick={(e) => e.stopPropagation()}>
+                {githubLink && (
+                  <a href={githubLink} target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">
+                    <span className="text-xs font-mono">Source</span>
+                  </a>
+                )}
+                {deployLink && deployLink !== "=" && (
+                  <a href={deployLink} target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">
+                    <span className="text-xs font-mono">Live</span>
+                  </a>
+                )}
+             </div>
+             
+             {collaborators?.length > 1 && (
+               <div className="text-[10px] text-neutral-500 italic">
+                 Team Project
+               </div>
+             )}
+          </div>
+        </div>
+        
+        {/* Animated Corner Border */}
+        <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none">
+            <div className="absolute top-4 right-4 w-px h-3 bg-white/20 group-hover:bg-white/40 transition-colors" />
+            <div className="absolute top-4 right-4 w-3 h-px bg-white/20 group-hover:bg-white/40 transition-colors" />
+        </div>
+      </div>
+    </Link>
+  );
+};
