@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaLaravel, FaReact, FaNodeJs, FaPython, FaGitAlt } from 'react-icons/fa';
-import { SiMysql, SiTailwindcss, SiJavascript, SiTypescript, SiFramer, SiVite } from 'react-icons/si';
+import { SiMysql, SiTailwindcss, SiJavascript, SiTypescript, SiFramer, SiVite, SiGo } from 'react-icons/si';
 
 const SkillBadge = ({ icon: Icon, name, color }) => (
   <motion.div
@@ -22,7 +22,8 @@ export const Skills = () => {
         { name: "MySQL", icon: SiMysql, color: "group-hover:text-[#4479A1]" },
         { name: "Node.js", icon: FaNodeJs, color: "group-hover:text-[#339933]" },
         { name: "Python", icon: FaPython, color: "group-hover:text-[#3776AB]" },
-      ]
+        { name: "Golang", icon: SiGo, color: "group-hover:text-[#00ADD8]" },
+        ]
     },
     {
       title: "Frontend",
@@ -46,7 +47,7 @@ export const Skills = () => {
   return (
     <section id="skills" className="py-24">
       <h2 className="text-3xl font-bold mb-12 text-center tracking-tight">Technical Stack</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto px-6">
         {skillGroups.map((group, idx) => (
           <div key={idx} className="flex flex-col gap-6">
             <h3 className="text-xs uppercase tracking-[0.2em] text-neutral-500 font-bold border-l-2 border-white/20 pl-4">

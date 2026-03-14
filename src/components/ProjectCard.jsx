@@ -20,7 +20,7 @@ export const ProjectCard = ({ id, title, description, tags, image, date, collabo
   const handleMouseLeave = () => setOpacity(0);
 
   return (
-    <Link 
+    <Link
       to={`/project/${id}`}
       className={`block relative group h-full rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden transition-all duration-300 hover:bg-white/[0.05] ${span}`}
       ref={cardRef}
@@ -31,8 +31,8 @@ export const ProjectCard = ({ id, title, description, tags, image, date, collabo
       {/* Background Image with Overlay */}
       {image && (
         <div className="absolute inset-0 z-0">
-          <img 
-            src={image} 
+          <img
+            src={image}
             alt={title}
             className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500"
             onError={(e) => e.target.style.display = 'none'}
@@ -49,8 +49,8 @@ export const ProjectCard = ({ id, title, description, tags, image, date, collabo
           opacity,
         }}
       />
-      
-      <div className="relative z-20 p-8 flex flex-col h-full bg-black/40 backdrop-blur-sm">
+
+      <div className="relative z-20 p-8 flex flex-col h-full bg-black/30 backdrop-blur-sm">
         <div className="flex items-start justify-between mb-4">
           <div className="flex flex-wrap gap-2">
             {tags?.map((tag) => (
@@ -61,7 +61,7 @@ export const ProjectCard = ({ id, title, description, tags, image, date, collabo
           </div>
           <span className="text-[10px] text-neutral-500 font-mono">{date}</span>
         </div>
-        
+
         <div className="mt-auto">
           <h3 className="text-2xl font-bold text-white mb-2 group-hover:translate-x-1 transition-transform duration-300">
             {title}
@@ -71,31 +71,31 @@ export const ProjectCard = ({ id, title, description, tags, image, date, collabo
           </p>
 
           <div className="flex items-center justify-between mt-auto">
-             <div className="flex gap-4" onClick={(e) => e.stopPropagation()}>
-                {githubLink && (
-                  <a href={githubLink} target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">
-                    <span className="text-xs font-mono">Source</span>
-                  </a>
-                )}
-                {deployLink && deployLink !== "=" && (
-                  <a href={deployLink} target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">
-                    <span className="text-xs font-mono">Live</span>
-                  </a>
-                )}
-             </div>
-             
-             {collaborators?.length > 1 && (
-               <div className="text-[10px] text-neutral-500 italic">
-                 Team Project
-               </div>
-             )}
+            <div className="flex gap-4" onClick={(e) => e.stopPropagation()}>
+              {githubLink && (
+                <a href={githubLink} target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">
+                  <span className="text-xs font-mono">Source</span>
+                </a>
+              )}
+              {deployLink && deployLink !== "=" && (
+                <a href={deployLink} target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">
+                  <span className="text-xs font-mono">Live</span>
+                </a>
+              )}
+            </div>
+
+            {collaborators?.length > 1 && (
+              <div className="text-[10px] text-neutral-500 italic">
+                Team Project
+              </div>
+            )}
           </div>
         </div>
-        
+
         {/* Animated Corner Border */}
         <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none">
-            <div className="absolute top-4 right-4 w-px h-3 bg-white/20 group-hover:bg-white/40 transition-colors" />
-            <div className="absolute top-4 right-4 w-3 h-px bg-white/20 group-hover:bg-white/40 transition-colors" />
+          <div className="absolute top-4 right-4 w-px h-3 bg-white/20 group-hover:bg-white/40 transition-colors" />
+          <div className="absolute top-4 right-4 w-3 h-px bg-white/20 group-hover:bg-white/40 transition-colors" />
         </div>
       </div>
     </Link>

@@ -29,23 +29,43 @@ const Home = () => {
         }
     }, [hash]);
 
+    // Helper for sorting certificates by date (Indonesian month names)
+    const monthMap = {
+        'Januari': 0, 'Februari': 1, 'Maret': 2, 'April': 3, 'Mei': 4, 'Juni': 5,
+        'Juli': 6, 'Agustus': 7, 'September': 8, 'Oktober': 9, 'November': 10, 'Desember': 11
+    };
+
+    const parseDate = (dateStr) => {
+        if (!dateStr) return new Date(0);
+        const parts = dateStr.trim().split(' ');
+        if (parts.length !== 3) return new Date(0);
+        const [day, month, year] = parts;
+        return new Date(parseInt(year), monthMap[month] || 0, parseInt(day));
+    };
+
+    const sortedCertificates = [...certificates].sort((a, b) => 
+        parseDate(b.date) - parseDate(a.date)
+    );
+
+    const sortedProjects = [...projectsData].sort((a, b) => 
+        parseDate(b.date) - parseDate(a.date)
+    );
+
     return (
-        <div className="space-y-32 pb-24">
+        <div className="pb-24">
             <Hero />
 
             {/* Tech Stack Horizontal Glow */}
-            <div className="py-12 border-y border-white/5 bg-white/[0.01]">
-                <div className="flex flex-wrap justify-center gap-16 opacity-30 grayscale hover:grayscale-0 transition-all duration-700">
-                    <Code2 className="w-10 h-10 hover:text-blue-400 transition-colors" />
-                    <Layers className="w-10 h-10 hover:text-purple-400 transition-colors" />
-                    <Cpu className="w-10 h-10 hover:text-red-400 transition-colors" />
-                    <Globe className="w-10 h-10 hover:text-green-400 transition-colors" />
-                    <Zap className="w-10 h-10 hover:text-yellow-400 transition-colors" />
-                </div>
+            <div className="flex flex-wrap justify-center gap-16 opacity-30 grayscale hover:grayscale-0 transition-all duration-700 -mt-12">
+                <Code2 className="w-10 h-10 hover:text-blue-400 transition-colors" />
+                <Layers className="w-10 h-10 hover:text-purple-400 transition-colors" />
+                <Cpu className="w-10 h-10 hover:text-red-400 transition-colors" />
+                <Globe className="w-10 h-10 hover:text-green-400 transition-colors" />
+                <Zap className="w-10 h-10 hover:text-yellow-400 transition-colors" />
             </div>
 
             {/* About Section */}
-            <section id="about" className="max-w-4xl mx-auto px-6 text-center">
+            <section id="about" className="max-w-4xl mx-auto px-6 text-center mt-32">
                 <div className="inline-block px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-widest text-neutral-500 mb-8">
                     The Developer
                 </div>
@@ -62,10 +82,12 @@ const Home = () => {
                 </div>
             </section>
 
-            <Skills />
+            <div className="mt-40">
+                <Skills />
+            </div>
 
             {/* Projects Bento Grid */}
-            <section id="projects" className="max-w-7xl mx-auto px-6">
+            <section id="projects" className="max-w-7xl mx-auto px-6 mt-40">
                 <div className="flex items-center gap-4 mb-16">
                     <Terminal className="w-6 h-6 text-neutral-500" />
                     <h2 className="text-3xl font-bold tracking-tight">Featured Projects</h2>
@@ -73,7 +95,7 @@ const Home = () => {
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[350px]">
-                    {projectsData.map((project, index) => (
+                    {sortedProjects.map((project, index) => (
                         <ProjectCard 
                             key={project.id} 
                             {...project} 
@@ -85,7 +107,7 @@ const Home = () => {
             </section>
 
             {/* Certificates Section */}
-            <section id="certificates" className="max-w-7xl mx-auto px-6">
+            <section id="certificates" className="max-w-7xl mx-auto px-6 mt-40">
                 <div className="flex items-center gap-4 mb-16">
                     <Award className="w-6 h-6 text-neutral-500" />
                     <h2 className="text-3xl font-bold tracking-tight">Certifications</h2>
@@ -93,13 +115,15 @@ const Home = () => {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {certificates.map((cert) => (
+                    {sortedCertificates.map((cert) => (
                         <CertificateCard key={cert.id} {...cert} />
                     ))}
                 </div>
             </section>
 
-            <Contact />
+            <div className="mt-40">
+                <Contact />
+            </div>
         </div>
     );
 };

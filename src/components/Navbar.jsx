@@ -24,14 +24,12 @@ const Navbar = () => {
         { name: 'Contact', href: '/#contact' },
     ];
 
-    const isHome = location.pathname === '/';
-
     return (
         <nav className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${scrolled ? 'py-4' : 'py-8'}`}>
             <div className="max-w-7xl mx-auto px-6">
                 <div className={`relative flex items-center justify-between p-2 rounded-2xl border transition-all duration-500 ${scrolled
-                        ? 'bg-black/40 border-white/10 backdrop-blur-xl shadow-[0_0_30px_rgba(0,0,0,0.5)]'
-                        : 'bg-transparent border-transparent'
+                    ? 'bg-black/40 border-white/10 backdrop-blur-xl shadow-[0_0_30px_rgba(0,0,0,0.5)]'
+                    : 'bg-transparent border-transparent'
                     }`}>
                     {/* Logo */}
                     <Link to="/" className="flex items-center gap-2 group px-4">
@@ -81,23 +79,23 @@ const Navbar = () => {
                         exit={{ opacity: 0, y: -20 }}
                         className="absolute top-full left-0 w-full p-6 md:hidden"
                     >
-                        <div className="bg-black/95 border border-white/10 backdrop-blur-2xl rounded-3xl p-8 shadow-2xl space-y-4">
+                        <div className="bg-black/95 border border-white/10 backdrop-blur-2xl rounded-3xl p-6 shadow-2xl space-y-2">
                             {navLinks.map((link) => (
                                 <a
                                     key={link.name}
                                     href={link.href}
                                     onClick={() => setIsOpen(false)}
-                                    className="block text-2xl font-bold text-neutral-500 hover:text-white transition-colors"
+                                    className="block p-3 text-lg font-semibold text-neutral-400 hover:text-white hover:bg-white/5 rounded-xl transition-all"
                                 >
                                     {link.name}
                                 </a>
                             ))}
-                            <div className="h-px bg-white/10 w-full my-6" />
+                            <div className="h-px bg-white/10 w-full my-4" />
                             <a
                                 href="mailto:labibabdullahhasan@gmail.com"
-                                className="flex items-center justify-center gap-2 w-full py-4 bg-white text-black font-bold rounded-2xl"
+                                className="flex items-center justify-center gap-2 w-full py-4 bg-white text-black font-bold rounded-2xl hover:scale-[1.02] transition-transform"
                             >
-                                Hire Me <ArrowUpRight />
+                                Hire Me <ArrowUpRight size={18} />
                             </a>
                         </div>
                     </motion.div>
