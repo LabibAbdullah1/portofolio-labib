@@ -56,7 +56,7 @@ const Home = () => {
             <Hero />
 
             {/* Tech Stack Horizontal Glow */}
-            <div className="flex flex-wrap justify-center gap-16 opacity-30 grayscale hover:grayscale-0 transition-all duration-700 -mt-12">
+            <div className="flex flex-wrap justify-center gap-16 opacity-30 grayscale hover:grayscale-0 transition-all duration-700 mt-12 mb-12 px-3">
                 <Code2 className="w-10 h-10 hover:text-blue-400 transition-colors" />
                 <Layers className="w-10 h-10 hover:text-purple-400 transition-colors" />
                 <Cpu className="w-10 h-10 hover:text-red-400 transition-colors" />
@@ -128,4 +128,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Home;
