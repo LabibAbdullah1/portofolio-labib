@@ -51,7 +51,7 @@ export const projectsData = [
         image: "/images/subly.png",
         dimage: "../images/subly.png",
         techIcons: [<FaLaravel />, <SiMysql />, <SiTailwindcss />,],
-        techStack: ["Laravel 12", "MySQL", "Tailwind", "Blade", "Breeze", "Midtrans"],
+        techStack: ["Laravel 12", "MySQL", "Tailwind", "Blade", "Breeze"],
         description: "A managed hosting platform designed for students. Upload your code, and we'll handle the infrastructure, database setup, and deployment automatically.",
         text: "bermula dari keresahan saya sebagai mahasiswa yang kesulitan untuk mendeploy project web saya, maka saya membuat platform ini untuk membantu mahasiswa lain dalam mendeploy project web mereka.",
         date: "14 Maret 2026",

@@ -83,4 +83,25 @@ export const certificates = [
         date: " 09 Maret 2026",
         image: "./sertifikat/webReact.png",
     },
+    {
+        id: 13,
+        title: "Sertifikat Lulus Kompetensi Belajar Fundamental Aplikasi Web dengan React",
+        issuer: "Dicoding Indonesia",
+        date: " 20 Maret 2026",
+        image: "./sertifikat/FundamentalAplikasiWebReact.png",
+    },
+    {
+        id: 14,
+        title: "Sertifikat Lulus Kompetensi Belajar Back-End Pemula dengan JavaScript",
+        issuer: "Dicoding Indonesia",
+        date: " 23 Maret 2026",
+        image: "./sertifikat/BackEndPemulaDenganJavascript.png",
+    },
+    {
+        id: 15,
+        title: "Sertifikat Lulus Kompetensi Belajar Fundamental Back-End dengan JavaScript",
+        issuer: "Dicoding Indonesia",
+        date: " 05 April 2026",
+        image: "./sertifikat/FundamentalBackEndDenganJavascript.png",
+    },
 ]
