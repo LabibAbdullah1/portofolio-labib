@@ -48,14 +48,14 @@ export const CustomCursor = () => {
   return (
     <>
       <div 
-        className="fixed top-0 left-0 w-full h-full pointer-events-none z-[9999] hidden md:block"
+        className="fixed top-0 left-0 w-full h-full pointer-events-none z-[99999] hidden md:block"
         style={{ cursor: 'none' }}
       >
         {/* Outer Ring */}
         <motion.div
           className={cn(
-            "fixed top-0 left-0 w-8 h-8 rounded-full border border-white/30 -ml-4 -mt-4 mix-blend-difference transition-transform duration-300",
-            isHovering ? "scale-150 border-white bg-white/10" : "scale-100"
+            "fixed top-0 left-0 w-8 h-8 rounded-full border-2 border-white -ml-4 -mt-4 mix-blend-difference transition-transform duration-300",
+            isHovering ? "scale-150 bg-white" : "scale-100"
           )}
           style={{
             x: cursorX,
@@ -65,7 +65,7 @@ export const CustomCursor = () => {
         
         {/* Inner Dot */}
         <motion.div
-          className="fixed top-0 left-0 w-1 h-1 bg-white rounded-full -ml-0.5 -mt-0.5 mix-blend-difference"
+          className="fixed top-0 left-0 w-1.5 h-1.5 bg-white rounded-full -ml-0.75 -mt-0.75 mix-blend-difference"
           style={{
             x: mouseX,
             y: mouseY,

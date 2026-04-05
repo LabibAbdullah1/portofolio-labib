@@ -8,8 +8,8 @@ import ProjectDetail from './pages/ProjectDetail';
 const App = () => {
   return (
     <Router>
+      <CustomCursor />
       <Layout>
-        <CustomCursor />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/project/:id" element={<ProjectDetail />} />
