@@ -1,5 +1,6 @@
 import React from 'react';
 import { Github, Instagram, Linkedin, Mail, ArrowUp } from 'lucide-react';
+import Logo from './Logo';
 
 const Footer = () => {
     const scrollToTop = () => {
@@ -12,9 +13,7 @@ const Footer = () => {
                 <div className="flex flex-col md:flex-row items-center justify-between gap-12 pb-12 border-b border-white/10">
                     <div className="space-y-6 max-w-sm text-center md:text-left">
                         <div className="flex items-center justify-center md:justify-start gap-2">
-                            <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                                <span className="text-black font-black text-xl">L</span>
-                            </div>
+                            <Logo size={32} />
                             <span className="text-white font-bold tracking-tighter text-2xl">LABIB</span>
                         </div>
                         <p className="text-neutral-500 leading-relaxed text-sm">

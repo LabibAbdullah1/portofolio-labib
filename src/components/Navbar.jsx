@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
+import Logo from './Logo';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -33,8 +34,8 @@ const Navbar = () => {
                     }`}>
                     {/* Logo */}
                     <Link to="/" className="flex items-center gap-2 group px-4">
-                        <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform">
-                            <span className="text-black font-black text-xl">L</span>
+                        <div className="group-hover:rotate-12 transition-transform duration-300">
+                            <Logo size={32} />
                         </div>
                         <span className="text-white font-bold tracking-tighter text-xl">LABIB</span>
                     </Link>

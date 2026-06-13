@@ -45,11 +45,11 @@ const ProjectDetail = () => {
                             className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 mb-12 group"
                         >
                             <img
-                                src={project.dimage}
+                                src={project.dimage || project.image}
                                 alt={project.title}
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                 onError={(e) => {
-                                    e.target.src = 'https://via.placeholder.com/1200x600?text=' + project.title;
+                                    e.target.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='600' viewBox='0 0 1200 600'%3E%3Crect fill='%23111111' width='1200' height='600'/%3E%3Ctext fill='%23444444' font-family='monospace' font-size='32' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3E${encodeURIComponent(project.title)}%3C/text%3E%3C/svg%3E`;
                                 }}
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
