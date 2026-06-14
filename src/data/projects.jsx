@@ -85,7 +85,7 @@ export const projectsData = [
         date: "13 Juni 2026",
         collaborators: ["Labib Abdullah"],
         deployLink: "https://api.sipangan.subly.my.id",
-        githubLink: "https://github.com/LabibAbdullah1/frontend-keuangan",
+        githubLink: "https://github.com/panen-predict-hub/BE-SIPANGAN",
     },
 
 ];
