@@ -78,7 +78,7 @@ export const projectsData = [
         title: "Sipangan-APP (Backend)",
         image: "/images/sipangan.png",
         dimage: "../images/sipangan.png",
-        techIcons: [<FaNodeJs />, <SiMysql />, <SiTailwindcss />],
+        techIcons: [<FaNodeJs />, <SiMysql />],
         techStack: ["Node.js", "MySQL", "Express.js", "API RESTful"],
         description: "Sistem Manajemen Pangan (SIPANGAN-APP) adalah aplikasi web yang dirancang untuk memudahkan pengelolaan data pangan, mulai dari informasi produk, tingkat ketersediaan, hingga rekapitulasi harga. Aplikasi ini bertujuan untuk menyediakan platform yang efisien bagi pengguna dalam mengelola data pangan.",
         text: "Membangun aplikasi ini membantu saya dalam memahami pentingnya pencatatan keuangan pribadi. Selain itu, saya juga berfokus menerapkan fitur CRUD yang aman serta validasi data yang ketat sesuai standar framework Laravel.",
