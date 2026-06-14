@@ -1,4 +1,4 @@
-import { FaLaravel } from "react-icons/fa";
+import { FaLaravel, FaReact, FaNodeJs } from "react-icons/fa";
 import { SiMysql, SiTailwindcss } from "react-icons/si";
 import MosquittoIcon from "../components/icon/MosquittoIcon";
 
@@ -26,7 +26,7 @@ export const projectsData = [
         techStack: ["Laravel 12", "MySQL", "Tailwind", "Blade", "Mosquitto"],
         description: "Sistem Monitoring Hidroponik berbasis IoT yang berfungsi sebagai Sistem Pendukung Keputusan (DSS). Solusi ini dirancang untuk mengatasi masalah ketidakakuratan takaran nutrisi akibat evaporasi air pada tandon. Saat ini sistem berjalan pada lingkungan lokal (Localhost) untuk simulasi dan pengujian data sensor real-time.",
         text: "Tantangan terbesar dalam proyek ini adalah membangun komunikasi data yang stabil antara hardware (ESP32) dan server lokal. Menggunakan protokol MQTT, saya harus memastikan konfigurasi Broker dan IP Address terkalibrasi dengan benar agar data sensor dapat dikirim secara realtime tanpa delay yang signifikan di jaringan lokal.",
-        date: "25 Januari 2026",
+        date: "11 Juni 2026",
         collaborators: ["Labib Abdullah"],
         deployLink: "https://smarthydroponic.subly.my.id",
         githubLink: "https://github.com/LabibAbdullah1/SmartHydroponic.git",
@@ -50,13 +50,42 @@ export const projectsData = [
         title: "Subly",
         image: "/images/subly.png",
         dimage: "../images/subly.png",
-        techIcons: [<FaLaravel />, <SiMysql />, <SiTailwindcss />,],
-        techStack: ["Laravel 12", "MySQL", "Tailwind", "Blade", "Breeze"],
-        description: "A managed hosting platform designed for students. Upload your code, and we'll handle the infrastructure, database setup, and deployment automatically.",
+        techIcons: [<FaReact />, <FaNodeJs />, <SiMysql />, <SiTailwindcss />,],
+        techStack: ["React", "Node.js", "MySQL", "Tailwind"],
+        description: "Platform hosting terkelola yang dirancang khusus untuk mahasiswa. Anda cukup mengunggah kode, dan kami akan secara otomatis menangani seluruh kebutuhan infrastruktur, penyiapan basis data, serta proses deployment.",
         text: "bermula dari keresahan saya sebagai mahasiswa yang kesulitan untuk mendeploy project web saya, maka saya membuat platform ini untuk membantu mahasiswa lain dalam mendeploy project web mereka.",
-        date: "14 Maret 2026",
+        date: "13 Juni 2026",
         collaborators: ["Labib Abdullah"],
         deployLink: "https://subly.my.id",
-        githubLink: "https://github.com/LabibAbdullah1/Subly",
+        githubLink: "https://github.com/LabibAbdullah1/frontend-subly",
     },
+    {
+        id: 5,
+        title: "Keuanganku",
+        image: "/images/keuanganku.png",
+        dimage: "../images/keuanganku.png",
+        techIcons: [<FaReact />, <FaNodeJs />, <SiMysql />, <SiTailwindcss />,],
+        techStack: ["React", "Node.js", "MySQL", "Tailwind", "Breeze"],
+        description: "Aplikasi pencatat keuangan pribadi yang dirancang untuk membantu individu mengelola pengeluaran dan pemasukan harian, mingguan, maupun bulanan dengan mudah dan terstruktur.",
+        text: "Membangun aplikasi ini membantu saya dalam memahami pentingnya pencatatan keuangan pribadi. Selain itu, saya juga berfokus menerapkan fitur CRUD yang aman serta validasi data yang ketat sesuai standar framework Laravel.",
+        date: "13 Juni 2026",
+        collaborators: ["Labib Abdullah"],
+        deployLink: "https://keuanganku.subly.my.id",
+        githubLink: "https://github.com/LabibAbdullah1/frontend-keuangan",
+    },
+    {
+        id: 6,
+        title: "Sipangan-APP (Backend)",
+        image: "/images/sipangan.png",
+        dimage: "../images/sipangan.png",
+        techIcons: [<FaNodeJs />, <SiMysql />, <SiTailwindcss />],
+        techStack: ["Node.js", "MySQL", "Express.js", "API RESTful"],
+        description: "Sistem Manajemen Pangan (SIPANGAN-APP) adalah aplikasi web yang dirancang untuk memudahkan pengelolaan data pangan, mulai dari informasi produk, tingkat ketersediaan, hingga rekapitulasi harga. Aplikasi ini bertujuan untuk menyediakan platform yang efisien bagi pengguna dalam mengelola data pangan.",
+        text: "Membangun aplikasi ini membantu saya dalam memahami pentingnya pencatatan keuangan pribadi. Selain itu, saya juga berfokus menerapkan fitur CRUD yang aman serta validasi data yang ketat sesuai standar framework Laravel.",
+        date: "13 Juni 2026",
+        collaborators: ["Labib Abdullah"],
+        deployLink: "https://api.sipangan.subly.my.id",
+        githubLink: "https://github.com/LabibAbdullah1/frontend-keuangan",
+    },
+
 ];
